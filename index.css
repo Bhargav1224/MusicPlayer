@@ -15,7 +15,7 @@ audio{
 
 .seekbar{
     -webkit-appearance: none;
-    width: 300px;
+    width: 850px;
     background-color: transparent;
 }
 .seekbar::-webkit-slider-thumb{
@@ -50,6 +50,7 @@ audio{
 
 .seekbar:focus::-webkit-slider-runnable-track{
     background-color: #B0B0B0;
+    cursor: pointer;
 
 }
 
@@ -61,4 +62,8 @@ audio{
 }
 .seekbar:focus{
     outline: none;
+}
+
+.volume{
+    width: 150px;
 }

@@ -9,6 +9,7 @@ const canvasElement = document.querySelector("canvas");
 const playPauseButton = document.querySelector(".play-pause");
 const seekBar = document.querySelector(".seekbar");
 const volumeBar = document.querySelector(".volume");
+const canvas = document.querySelector(".canvas");
 
 //changing the button Icons when we stop and pause and replay
 const pauseIcon = `<span class="material-icons"> pause</span>`;
@@ -52,6 +53,7 @@ audioElement.addEventListener("canplay", setDuration);
 //adding events to custom play song and volume
 seekBar.addEventListener("input", onSeek);
 volumeBar.addEventListener("input", onVolumeSeek);
+canvas.addEventListener("click", onSeek);
 
 //In web audio api ,firstly we need to connect the graphs , we are created the notes above already
 source.connect(analyser);
@@ -62,7 +64,7 @@ const bufferLength = analyser.frequencyBinCount;
 //Uint8Array----array of integers of 8bit long(1byte --long) those are also unsigned...
 const dataArray = new Uint8Array(bufferLength);
 
-function draw() {
+function draw(e) {
 	analyser.getByteFrequencyData(dataArray);
 	//filling canvas with background-color gray
 	canvasContext.fillStyle = `gray`;
@@ -70,19 +72,22 @@ function draw() {
 	canvasContext.fillRect(0, 0, width, height);
 
 	//calculating the barWidth using width and bufferLength with constant frequency
-	const barWidth = (width / bufferLength) * 2.5;
+	const barWidth = width / bufferLength;
 	let barHeight;
 	let x = 0;
 
 	for (let i = 0; i < bufferLength; i++) {
-		barHeight = dataArray[i] / 2.8;
+		barHeight = dataArray[i] * 2;
 		//filling up the canvas with chocolate color
 		canvasContext.fillStyle = `chocolate`;
+
 		//creating the rectangular boxes to modulating the frequencies
 		canvasContext.fillRect(x, height - barHeight, barWidth, barHeight);
 		//updating the x with batWidth based on the frequencies
 		x += barWidth + 1;
 	}
+
+	// audioElement.currentTime = e.target.value;
 
 	//calling the function everyTime and added animations
 	requestAnimationFrame(draw);
