@@ -12,9 +12,25 @@
 		/>
 	</head>
 	<body>
+		<!-- simple audio player -->
 		<audio controls>
 			<source src="./bensound-funkyelement.mp3" type="audio/mp3" />
 		</audio>
+
+		<div class="audio-payer">
+			<!-- Adding canvas for visualization-->
+			<canvas height="100px" width="480px"></canvas>
+            <!-- creating visualization-->
+			<div class="controls">
+				<button class="play-pause">
+					<span class="material-icons"> play_arrow </span>
+				</button>
+				<input type="range" class="seekbar" />
+				<span class="material-icons white">volume_down</span>
+				<input type="range" class="volume" />
+			</div>
+		</div>
+
 		<script src="./index.js"></script>
 	</body>
 </html>
