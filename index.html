@@ -4,33 +4,33 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Audio Player</title>
-		<link rel="stylesheet" href="./index.css" />
+		<title>Music Player</title>
 		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+			integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
 		/>
+		<link rel="stylesheet" href="./index.css" />
 	</head>
 	<body>
-		<!-- simple audio player -->
-		<audio controls>
-			<source src="./bensound-funkyelement.mp3" type="audio/mp3" />
-		</audio>
+		<!--Audio Container  -->
+		<div class="audio-container">
+			<div class="track-name">Custom Audio Player</div>
 
-		<div class="audio-payer">
-			<!-- Adding canvas for visualization-->
-			<canvas height="300px"  width="1080px" class="canvas"></canvas>
-            <!-- creating visualization-->
-			<div class="controls">
-				<button class="play-pause">
-					<span class="material-icons"> play_arrow </span>
-				</button>
-				<input type="range" class="seekbar" />
-				<span class="material-icons white">volume_down</span>
-				<input type="range" class="volume" />
+			<div class="audio"></div>
+			<canvas class="canvas"></canvas>
+			<!-- button for play and pause -->
+			<div class="buttons">
+				<span class="play-btn btn">
+					<i class="fas fa-play"></i>
+					<i class="fas fa-pause"></i>
+				</span>
 			</div>
 		</div>
 
+		<script src="https://unpkg.com/wavesurfer.js"></script>
 		<script src="./index.js"></script>
 	</body>
 </html>
