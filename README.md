@@ -1,5 +1,5 @@
 # MusicPlayer
-Created a custom Audio player using wave surfer and JavaScript .User can customize the wave and move the song where he wants to move .
+Created a custom Audio player using wave surfer and JavaScript .User can customize the wave and move the song where he wants to move and he can play and pause the audio .
 
 # Audio player without song 
 
